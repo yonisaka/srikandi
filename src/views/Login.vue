@@ -22,7 +22,7 @@
                                         <input type="password" placeholder="Password" v-model="auth.user_password" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
                                     </div>
 
-                                    <button type="submit" @click="login" class="btn btn-success btn-block text-uppercase mb-2 shadow-sm">Login</button>
+                                    <button type="submit" @click="login" class="btn btn-success btn-block btn-round text-uppercase mb-2 shadow-sm">Login</button>
                                 </form>
                             </div>
                         </div>
@@ -57,23 +57,22 @@ export default {
     // },
     login() {
       if (this.auth.user_mail && this.auth.user_password) {
-        this.auth.user_role = 'user';
+        this.auth.user_role = 'admin';
         axios
-          .post("https://localhost/srikandi_api/auth/login", this.auth)
+          .post("http://localhost/srikandi_api/auth/login", this.auth)
           .then((response) => {
             if (response.data != null){
               console.log(response.data.data);
               this.$cookie.set('user_id', response.data.data.user_id, { expires: '30m' });
               this.$cookie.set('user_nama', response.data.data.user_nama, { expires: '30m' });
 
-              // this.setUser(response.data)
               this.$toast.success("Berhasil Login", {
                 type: "success",
                 position: "top-right",
                 duration: 3000,
                 dismissible: true,
               });
-              this.$router.push({ path: "/"})
+              this.$router.push({ path: "/home_"+ response.data.data.role})
             } else {
               this.$toast.error("Email dan Password tidak ditemukan", {
                 type: "error",
@@ -102,11 +101,5 @@ export default {
       }
     },
   },
-  // mounted() {
-  //   axios
-  //     .get("http://localhost:8000/movie")
-  //     .then((response) => this.setUser(response.data))
-  //     .catch((error) => console.log(error));
-  // }
 };
 </script>
