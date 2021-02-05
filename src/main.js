@@ -7,6 +7,9 @@ import 'vue-toast-notification/dist/theme-default.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/main.css'
+// import vuetify from './plugins/vuetify';
+// import 'roboto-fontface/css/roboto/roboto-fontface.css'
+// import '@mdi/font/css/materialdesignicons.css'
 
 Vue.use(require('vue-cookie'));
 Vue.use(require('vue-moment'));
@@ -18,5 +21,6 @@ Vue.config.productionTip = false
 
 new Vue({
   router,
+  // vuetify,
   render: h => h(App)
 }).$mount('#app')

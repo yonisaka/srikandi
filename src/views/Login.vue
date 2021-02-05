@@ -1,13 +1,19 @@
 <template>
+  <div :style="{
+    height: '820px',
+    backgroundImage: 'url('+require('@/assets/bg.png')+')',
+    backgroundPosition: 'center center',
+    backgroundSize: 'cover'
+    }">
     <div class="container-fluid">
         <div class="row no-gutter">
             <div class="col-md-12">
                 <div class="login d-flex align-items-center py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-10 col-xl-5 mx-auto">
-                                <h3 class="display-4">Login</h3>
-                                <p class="text-muted mb-4">Masuk ke akun anda</p>
+                    <div class="container pt-5">
+                        <div class="row pt-5">
+                            <div class="col-lg-10 col-xl-5 mx-auto pt-5">
+                                <h3 class="display-4 text-light"><img src="../assets/srikandi.png" width="20%" /></h3>
+                                <h5 class="mb-4 text-light">Selamat Datang di <br> Srikandi Health</h5>
                                 <form class="mt-2" v-on:submit.prevent>
                                     <div class="form-group mb-3">
                                         <input type="text" placeholder="Email address" v-model="auth.user_mail" class="form-control rounded-pill border-0 shadow-sm px-4">
@@ -16,8 +22,7 @@
                                         <input type="password" placeholder="Password" v-model="auth.user_password" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
                                     </div>
 
-                                    <button type="submit" @click="login" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
-                                    
+                                    <button type="submit" @click="login" class="btn btn-success btn-block text-uppercase mb-2 shadow-sm">Login</button>
                                 </form>
                             </div>
                         </div>
@@ -26,6 +31,7 @@
             </div>
         </div>
     </div>
+  </div>
 </template>
 
 

@@ -7,11 +7,15 @@
 }
 
 .btn-success {
-    background-color: #4EB883;
+    background-color: #378E94;
+}
+
+.btn-success:hover {
+    background-color: #378E94;
 }
 
 .badge-success {
-    background-color: #4EB883;
+    background-color: #378E94;
 }
 
 .card-product {
