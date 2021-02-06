@@ -37,7 +37,6 @@
     color: black;
 }
 
-
 .img-fluid {
     border-radius: 15px;
     /* width:100%; */
@@ -45,4 +44,8 @@
 
 .btn-nav{
     height:400px;
+}
+
+.btn-round {
+    border-radius: 15px;
 }

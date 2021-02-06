@@ -21,8 +21,22 @@
                                     <div class="form-group mb-3">
                                         <input type="password" placeholder="Password" v-model="auth.user_password" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
                                     </div>
-
-                                    <button type="submit" @click="login" class="btn btn-success btn-block text-uppercase mb-2 shadow-sm">Login</button>
+                                    <b-overlay
+                                      :show="isLoading"
+                                      rounded
+                                      opacity="0.6"
+                                      spinner-small
+                                      spinner-variant="primary"
+                                      >
+                                      <b-button 
+                                        type="submit" 
+                                        block
+                                        variant="success"
+                                        :disabled="isLoading"
+                                        @click="login" 
+                                      >
+                                      Login</b-button>
+                                    </b-overlay>
                                 </form>
                             </div>
                         </div>
@@ -47,33 +61,38 @@ export default {
   },
   data() {
     return {
-      // user: [],
+      isLoading: false,
       auth: {},
     };
+  },
+  beforeCreate() {
+    if(this.$session.get('user') != null){
+      this.$router.push({ path: "/"+ this.$session.get('user').role +"/home"})
+    }
   },
   methods: {
     // setUser(data) {
     //   this.user = data;
     // },
     login() {
+      this.isLoading = true
       if (this.auth.user_mail && this.auth.user_password) {
-        this.auth.user_role = 'user';
+        this.auth.user_role = 'admin';
         axios
-          .post("https://localhost/srikandi_api/auth/login", this.auth)
+          .post("http://localhost/srikandi_api/auth/login", this.auth)
           .then((response) => {
+            this.isLoading = false
             if (response.data != null){
               console.log(response.data.data);
-              this.$cookie.set('user_id', response.data.data.user_id, { expires: '30m' });
-              this.$cookie.set('user_nama', response.data.data.user_nama, { expires: '30m' });
-
-              // this.setUser(response.data)
+              this.$session.start()
+              this.$session.set('user', response.data.data);
               this.$toast.success("Berhasil Login", {
                 type: "success",
                 position: "top-right",
                 duration: 3000,
                 dismissible: true,
               });
-              this.$router.push({ path: "/"})
+              this.$router.push({ path: "/"+response.data.data.role+"/home"})
             } else {
               this.$toast.error("Email dan Password tidak ditemukan", {
                 type: "error",
@@ -85,6 +104,7 @@ export default {
             
           })
           .catch(() => {
+            this.isLoading = false
             this.$toast.error("Email dan Password tidak ditemukan", {
                 type: "error",
                 position: "top-right",
@@ -93,6 +113,7 @@ export default {
               });
           });
       } else {
+        this.isLoading = false
         this.$toast.error("Email dan Password Harus diisi", {
           type: "error",
           position: "top-right",
@@ -102,11 +123,5 @@ export default {
       }
     },
   },
-  // mounted() {
-  //   axios
-  //     .get("http://localhost:8000/movie")
-  //     .then((response) => this.setUser(response.data))
-  //     .catch((error) => console.log(error));
-  // }
 };
 </script>
