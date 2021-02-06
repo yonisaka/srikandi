@@ -15,12 +15,12 @@ Vue.use(VueRouter)
     component: Login
   },
   {
-    path: '/home_admin',
+    path: '/admin/home',
     name: 'Home_admin',
     component: Home_admin
   },
   {
-    path: '/artikel_admin',
+    path: '/admin/list_artikel',
     name: 'Artikel_admin',
     component: Artikel_admin
   }
