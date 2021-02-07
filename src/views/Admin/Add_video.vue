@@ -32,10 +32,20 @@
                   ref="file"
                 ></b-form-file>
             </b-form-group>
-            <b-button block type="submit" @click="add_process" class="btn btn-round btn-success my-4">
-              Simpan
-              <b-icon-arrow-right-short></b-icon-arrow-right-short>
-            </b-button>
+            <b-overlay
+              :show="isLoading"
+              rounded
+              opacity="0.6"
+              spinner-small
+              spinner-variant="primary"
+              >
+              <b-button block type="submit" 
+              @click="add_process" 
+              class="btn btn-round btn-success my-4">
+                Simpan
+                <b-icon-arrow-right-short></b-icon-arrow-right-short>
+              </b-button>
+            </b-overlay>
           </b-form> 
         </v-col>
       </v-row>
@@ -54,6 +64,7 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
       form: {},
       page: {
         path: '/admin/home',
@@ -63,6 +74,7 @@ export default {
   },
   methods: {
     add_process() {
+      this.isLoading = true
       let formData = new FormData()
       formData.append('video_judul', this.form.video_judul)
       formData.append('file', this.form.file);
@@ -84,10 +96,12 @@ export default {
               duration: 3000,
               dismissible: true,
               });
+              this.isLoading = false
               this.$router.push({ path: "/"+this.$session.get('user').role+"/home"})
           })
           .catch((err) => console.log(err));
       } else {
+          this.isLoading = false
           this.$toast.error("Form harus diisi", {
           type: "error",
           position: "top-right",

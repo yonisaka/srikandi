@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 
 import Home_admin from '../views/Admin/Home.vue'
 import Artikel_admin from '../views/Admin/Artikel.vue'
+import Video_admin from '../views/Admin/Video.vue'
 import Add_video from '../views/Admin/Add_video.vue'
 
 
@@ -24,6 +25,11 @@ Vue.use(VueRouter)
     path: '/admin/add_video',
     name: 'Add_video',
     component: Add_video
+  },
+  {
+    path: '/admin/list_video',
+    name: 'Video_admin',
+    component: Video_admin
   },
   {
     path: '/admin/list_artikel',

@@ -17,7 +17,7 @@
               <div class="h3 py-3">
               <b-icon-pencil-square></b-icon-pencil-square>
               </div>
-              Add Artikel
+              Tambah Artikel
             </button>
           </router-link>
         </v-col>
@@ -39,7 +39,7 @@
               <div class="h3 py-3">
               <b-icon-cloud-arrow-up></b-icon-cloud-arrow-up>
               </div>
-              Add Video
+              Tambah Video
             </button>
           </router-link>
         </v-col>
