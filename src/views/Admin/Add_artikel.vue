@@ -6,31 +6,52 @@
         <v-col cols="12" sm="6" class="mx-auto">
           <b-form role="form" v-on:submit.prevent>
             <b-form-group
-                id="input-group-1"
-                label="Judul Video:"
-                label-for="input-1"
-            >
-                <b-form-input
-                id="input-1"
-                v-model="form.video_judul"
-                type="text"
-                placeholder="Judul Video"
-                required
-                ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                label="File Video:"
+                label="Banner Artikel"
                 label-for="input-2"
             >
                 <b-form-file
                   id="input-2"
                   type="file"
                   v-model="form.file"
-                  placeholder="Pilih file video"
+                  placeholder="Pilih file banner"
                   drop-placeholder="Drop file here..."
                   ref="file"
                 ></b-form-file>
             </b-form-group>
+            <b-form-group
+                id="input-group-1"
+                label="Judul Artikel"
+                label-for="input-1"
+            >
+                <b-form-input
+                id="input-1"
+                v-model="form.artikel_judul"
+                type="text"
+                placeholder="Judul Artikel"
+                required
+                ></b-form-input>
+            </b-form-group>
+            <b-form-group
+                id="input-group-1"
+                label="Tanggal Artikel"
+                label-for="input-1"
+            >
+                <b-form-datepicker id="example-datepicker" v-model="form.artikel_tanggal" class="mb-2"></b-form-datepicker>
+            </b-form-group>
+            <b-form-group
+                id="input-group-1"
+                label="Isi Artikel"
+                label-for="input-1"
+            >
+                <b-form-textarea
+                id="textarea"
+                v-model="form.artikel_isi"
+                placeholder="Tuliskan isi artikel..."
+                rows="8"
+                max-rows="8"
+                ></b-form-textarea>
+            </b-form-group>
+            
             <b-overlay
               :show="isLoading"
               rounded
@@ -57,7 +78,7 @@ import Appbar from "@/components/Appbar.vue";
 import axios from "axios";
 
 export default {
-  name: "Add_video",
+  name: "Add_artikel",
   components: {
     Appbar,
   },
@@ -67,7 +88,7 @@ export default {
       form: {},
       page: {
         path: '/admin/home',
-        title: 'Tambah Video',
+        title: 'Tambah Artikel',
       }
     };
   },
@@ -75,13 +96,15 @@ export default {
     add_process() {
       this.isLoading = true
       let formData = new FormData()
-      formData.append('video_judul', this.form.video_judul)
+      formData.append('artikel_judul', this.form.artikel_judul)
+      formData.append('artikel_isi', this.form.artikel_isi)
+      formData.append('artikel_tanggal', this.form.artikel_tanggal)
       formData.append('file', this.form.file);
       formData.append('mdb', this.$session.get('user').user_id)
       formData.append('mdb_name', this.$session.get('user').username)
-      if (this.form.video_judul) {
+      if (this.form.artikel_judul && this.form.artikel_isi && this.form.artikel_tanggal) {
           axios
-          .post("http://localhost/srikandi_api/video/add", formData,
+          .post("http://localhost/srikandi_api/artikel/add", formData,
           {
               headers: {
                   'Content-Type': 'multipart/form-data'

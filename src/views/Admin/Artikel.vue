@@ -3,12 +3,10 @@
     <Appbar :page="page"/>
     <v-container fill-height class="text-center">
       <v-row justify="center" align="center" >
-        <v-col cols="12" sm="6" class="mx-auto">
-          <b-card img-src="https://placekitten.com/100/100" img-alt="Card image" img-left class="mb-3">
-            <b-card-text>
-                Some quick example text to build on the card and make up the bulk of the card's content.
-            </b-card-text>
-          </b-card>
+        <v-col cols="12" sm="6" 
+        class="mx-auto" 
+        v-for="data in result" :key="data.artikel_id">
+          <CardArtikel :data="data" />
         </v-col>
       </v-row>
     </v-container>
@@ -17,18 +15,34 @@
 
 <script>
 import Appbar from "@/components/Appbar.vue";
+import CardArtikel from "@/components/CardArtikel.vue";
+import axios from "axios";
+
 export default {
   name: "Artikel_admin",
   components: {
     Appbar,
+    CardArtikel,
   },
   data() {
     return {
+      result: [],
       page: {
         path: '/admin/home',
         title: 'Tabel Artikel',
       }
     };
-  }
+  },
+  methods: {
+    setResult(data) {
+      this.result = data;
+    },
+  },
+  mounted() {
+    axios
+      .get("http://localhost/srikandi_api/artikel/show")
+      .then((response) => this.setResult(response.data.result))
+      .catch((error) => console.log(error));
+  },
 };
 </script>
