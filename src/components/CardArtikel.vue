@@ -3,12 +3,12 @@
   <b-card :img-src="data.artikel_filepath" 
   img-alt="Card image" 
   img-left
-  img-width="150px"
-  img-height="150px"
+  img-width="160px"
+  img-height="160px"
   >
     <b-card-text class="text-left">
-        <h4 class="font-weight-bold text-dark">{{ data.artikel_judul }}</h4>
-        <small class="text-secondary">{{ data.artikel_tanggal }} </small>
+        <p class="h5 font-weight-bold text-dark">{{ data.artikel_judul }}</p>
+        <small class="text-secondary">{{ data.artikel_tanggal|moment('MMM Do YYYY') }} </small>
         <p class="text-secondary text-justify">{{ data.isi_ringkas }} </p>
     </b-card-text>
   </b-card>

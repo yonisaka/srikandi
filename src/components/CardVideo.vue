@@ -1,7 +1,7 @@
 <template>
   <b-card class="card-data">
     <b-card-title>
-        <h4 class="pb-2"> {{ data.video_judul}} </h4>
+        <h4 class="pb-2"> {{ data.video_judul }} </h4>
         <Media 
           width="100%"
           :kind="'video'"
@@ -9,7 +9,7 @@
           :src="data.video_filepath"
         >
         </Media>
-        <small class="text-small float-left">By : {{ data.mdb_name }} {{ data.mdd }}</small>
+        <small class="text-small float-left">By : {{ data.mdb_name }} {{ data.mdd|moment('MMM Do YYYY') }}</small>
     </b-card-title>
   </b-card>
 </template>

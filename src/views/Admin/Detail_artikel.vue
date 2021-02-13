@@ -6,7 +6,7 @@
         <v-col cols="10" sm="6" 
         class="mx-auto">
             <b-img :src="data.artikel_filepath" fluid alt="Image"></b-img>
-            <p class="text-left text-dark text-small pt-2">{{ data.artikel_tanggal }} </p>
+            <p class="text-left text-dark text-small pt-2">{{ data.artikel_tanggal|moment('MMM Do YYYY') }} </p>
             <p class="text-dark text-justify">{{ data.artikel_isi }} </p>
         </v-col>
       </v-row>
