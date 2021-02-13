@@ -44,6 +44,11 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+          <div class="col-md-12 text-center mt-5">
+            <p class="text-light text-small">You don't have another account? <router-link to="/register" class="font-weight-bold text-light"> Sign up</router-link> </p>
+          </div>
+        </div>
     </div>
   </div>
 </template>
@@ -77,7 +82,6 @@ export default {
     login() {
       this.isLoading = true
       if (this.auth.user_mail && this.auth.user_password) {
-        this.auth.user_role = 'admin';
         axios
           .post("http://localhost/srikandi_api/auth/login", this.auth)
           .then((response) => {

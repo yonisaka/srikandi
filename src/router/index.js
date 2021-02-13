@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
+import Register_nakes from '../views/Nakes/Register.vue'
 
 import Home_admin from '../views/Admin/Home.vue'
 import Artikel_admin from '../views/Admin/Artikel.vue'
@@ -17,6 +19,16 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  {
+    path: '/nakes/register',
+    name: 'Register_nakes',
+    component: Register_nakes
   },
   {
     path: '/admin/home',
