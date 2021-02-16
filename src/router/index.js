@@ -11,6 +11,10 @@ import Detail_artikel from '../views/Admin/Detail_artikel.vue'
 import Video_admin from '../views/Admin/Video.vue'
 import Add_video from '../views/Admin/Add_video.vue'
 
+import Home_nakes from '../views/Nakes/Home.vue'
+import Add_pasien from '../views/Nakes/Add_pasien.vue'
+import Pasien_nakes from '../views/Nakes/Pasien.vue'
+import Detail_pasien_nakes from '../views/Nakes/Detail_pasien.vue'
 
 Vue.use(VueRouter)
 
@@ -59,6 +63,26 @@ Vue.use(VueRouter)
     path: '/admin/detail_artikel/:id/:title',
     name: 'Detail_artikel',
     component: Detail_artikel
+  },
+  {
+    path: '/dokter/home',
+    name: 'Home_nakes',
+    component: Home_nakes
+  },
+  {
+    path: '/dokter/add_pasien',
+    name: 'Add_pasien',
+    component: Add_pasien
+  },
+  {
+    path: '/dokter/pasien',
+    name: 'Pasien_nakes',
+    component: Pasien_nakes
+  },
+  {
+    path: '/dokter/detail_pasien/:id',
+    name: 'Detail_pasien_nakes',
+    component: Detail_pasien_nakes
   },
 ]
 
