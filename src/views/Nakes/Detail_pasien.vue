@@ -58,7 +58,7 @@
                 label-for="input-1"
             >
                 <b-form-input
-                v-model="data.pasien_hb"
+                v-model="data.pasien_homoglobin"
                 type="text"
                 placeholder="Kadar Homogoblin (hb)"
                 disabled
@@ -101,18 +101,18 @@
                 label-for="input-1"
             >
                 <b-form-input
-                v-model="data.pasien_mail"
+                v-model="data.user_mail"
                 type="text"
                 placeholder="Email"
                 disabled
                 ></b-form-input>
             </b-form-group>
-            <b-button block type="submit" 
-              class="btn btn-round btn-success my-4">
+            <a :href="'http://wa.me/'+ data.pasien_telp" 
+              class="btn btn-block btn-round btn-success my-4">
               <!-- <b-icon-whatsapp></b-icon-whatsapp> -->
                 Hubungi
                 WA
-            </b-button>
+            </a>
             <!-- <b-form-group
                 id="input-group-1"
                 label="Password"
@@ -193,7 +193,7 @@ export default {
       .catch((error) => console.log(error));
 
     axios
-      .get("http://localhost/srikandi_api/remaja/show?pasien_id=" + this.$route.params.id)
+      .get("http://localhost/srikandi_api/konsultasi/show?konsultasi_id=" + this.$route.params.id)
       .then((response) => this.setData(response.data.result))
       .catch((error) => console.log(error));
   },

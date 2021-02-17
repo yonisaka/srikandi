@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="'/dokter/detail_pasien/'+data.pasien_id">
+  <router-link :to="'/dokter/detail_pasien/'+data.konsultasi_id">
   <b-card >
     <b-card-text class="text-left">
         <p class="h5 font-weight-bold text-dark">{{ data.pasien_nama }}</p>
