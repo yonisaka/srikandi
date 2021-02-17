@@ -5,7 +5,7 @@
       <v-row justify="center" align="center" >
         <v-col cols="12" sm="6" 
         class="mx-auto" 
-        v-for="data in result" :key="data.artikel_id">
+        v-for="data in result" :key="data.konsultasi_id">
           <CardPasien :data="data" />
         </v-col>
       </v-row>
@@ -40,7 +40,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost/srikandi_api/remaja/show")
+      .get("http://localhost/srikandi_api/konsultasi/show")
       .then((response) => this.setResult(response.data.result))
       .catch((error) => console.log(error));
   },
