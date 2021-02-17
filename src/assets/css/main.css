@@ -18,7 +18,7 @@
     background-color: #378E94;
 }
 
-.card-product {
+.card-data {
     border-radius: 15px;
 }
 
@@ -48,4 +48,12 @@
 
 .btn-round {
     border-radius: 15px;
+}
+
+.text-small {
+    font-size: 10pt;
+}
+
+.btn-main{
+    height:140px;
 }

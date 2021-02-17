@@ -9,7 +9,6 @@
                 id="input-group-1"
                 label="Judul Video:"
                 label-for="input-1"
-                description="We'll never share your email with anyone else."
             >
                 <b-form-input
                 id="input-1"
@@ -32,10 +31,20 @@
                   ref="file"
                 ></b-form-file>
             </b-form-group>
-            <b-button block type="submit" @click="add_process" class="btn btn-round btn-success my-4">
-              Simpan
-              <b-icon-arrow-right-short></b-icon-arrow-right-short>
-            </b-button>
+            <b-overlay
+              :show="isLoading"
+              rounded
+              opacity="0.6"
+              spinner-small
+              spinner-variant="primary"
+              >
+              <b-button block type="submit" 
+              @click="add_process" 
+              class="btn btn-round btn-success my-4">
+                Simpan
+                <b-icon-arrow-right-short></b-icon-arrow-right-short>
+              </b-button>
+            </b-overlay>
           </b-form> 
         </v-col>
       </v-row>
@@ -48,12 +57,13 @@ import Appbar from "@/components/Appbar.vue";
 import axios from "axios";
 
 export default {
-  name: "Artikel_admin",
+  name: "Add_video",
   components: {
     Appbar,
   },
   data() {
     return {
+      isLoading: false,
       form: {},
       page: {
         path: '/admin/home',
@@ -63,6 +73,7 @@ export default {
   },
   methods: {
     add_process() {
+      this.isLoading = true
       let formData = new FormData()
       formData.append('video_judul', this.form.video_judul)
       formData.append('file', this.form.file);
@@ -84,10 +95,12 @@ export default {
               duration: 3000,
               dismissible: true,
               });
+              this.isLoading = false
               this.$router.push({ path: "/"+this.$session.get('user').role+"/home"})
           })
           .catch((err) => console.log(err));
       } else {
+          this.isLoading = false
           this.$toast.error("Form harus diisi", {
           type: "error",
           position: "top-right",
