@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import Register_admin from '../views/Admin/Register.vue'
 import Register_nakes from '../views/Nakes/Register.vue'
+import Register_pasien from '../views/Pasien/Register.vue'
 
 import Home_admin from '../views/Admin/Home.vue'
 import Artikel_admin from '../views/Admin/Artikel.vue'
@@ -37,9 +39,24 @@ Vue.use(VueRouter)
     component: Register
   },
   {
+    path: '/admin/register',
+    name: 'Register_admin',
+    component: Register_admin
+  },
+  {
     path: '/nakes/register',
     name: 'Register_nakes',
     component: Register_nakes
+  },
+  {
+    path: '/nakes/register',
+    name: 'Register_nakes',
+    component: Register_nakes
+  },
+  {
+    path: '/pasien/register',
+    name: 'Register_pasien',
+    component: Register_pasien
   },
   {
     path: '/admin/home',
