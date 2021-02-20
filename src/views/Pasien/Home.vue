@@ -25,7 +25,7 @@
           <router-link to="/pasien/list_konsultasi">
             <button class="btn btn-success btn-block btn-round btn-main">
               <div class="h3 py-3">
-              <b-icon-newspaper></b-icon-newspaper>
+              <b-icon-person-badge></b-icon-person-badge>
               </div>
               Data Konsultasi
             </button>
@@ -37,7 +37,7 @@
           <router-link to="/pasien/add_konsultasi">
             <button class="btn btn-success btn-block btn-round btn-main">
               <div class="h3 py-3">
-              <b-icon-newspaper></b-icon-newspaper>
+              <b-icon-person-check></b-icon-person-check>
               </div>
               Konsultasi
             </button>

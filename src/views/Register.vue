@@ -22,7 +22,7 @@
           </router-link>
         </v-col>
         <v-col cols="6" sm="6" class="p-4">
-          <router-link to="/admin/list_artikel">
+          <router-link to="/pasien/register">
             <button class="btn btn-success btn-block btn-round btn-main" >
               <div class="h3 py-2">
               <b-icon-people></b-icon-people>
@@ -34,7 +34,7 @@
       </v-row>
       <v-row justify="center" align="center">
         <v-col cols="6" sm="6" class="p-4 mx-auto">
-          <router-link to="/admin/add_video">
+          <router-link to="/admin/register">
             <button class="btn btn-success btn-block btn-round btn-main">
               <div class="h3 py-2">
               <b-icon-person-badge></b-icon-person-badge>
