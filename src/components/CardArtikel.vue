@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="'/admin/detail_artikel/'+data.artikel_id+'/'+data.artikel_judul">
+  <router-link :to="'/'+user.role+'/detail_artikel/'+data.artikel_id+'/'+data.artikel_judul">
   <b-card :img-src="data.artikel_filepath" 
   img-alt="Card image" 
   img-left
@@ -19,7 +19,11 @@
 export default {
   name: "CardArtikel",
   props: ["data"],
- 
+  data() {
+    return {
+      user: this.$session.get('user'),
+    };
+  },
 };
 </script>
 
