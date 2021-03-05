@@ -159,7 +159,7 @@ export default {
             });
           } else {
             axios
-            .post("http://localhost/srikandi_api/nakes/add", formData,
+            .post("http://srikandi.yogiyulianto.com/nakes/add", formData,
             {
                 headers: {
                     'Content-Type': 'multipart/form-data'

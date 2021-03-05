@@ -8,6 +8,7 @@ import 'vue-toast-notification/dist/theme-default.css';
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/main.css'
+import './registerServiceWorker'
 // import VueCoreVideoPlayer from 'vue-core-video-player'
 // import vuetify from './plugins/vuetify';
 // import 'roboto-fontface/css/roboto/roboto-fontface.css'

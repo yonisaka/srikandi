@@ -105,7 +105,7 @@ export default {
             });
           } else {
             axios
-            .post("http://localhost/srikandi_api/konsultasi/add", formData,
+            .post("http://srikandi.yogiyulianto.com/konsultasi/add", formData,
             {
                 headers: {
                     'Content-Type': 'multipart/form-data'
@@ -138,7 +138,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost/srikandi_api/gejala/show")
+      .get("http://srikandi.yogiyulianto.com/gejala/show")
       .then((response) => this.setGejala(response.data.result))
       .catch((error) => console.log(error));
   },

@@ -41,7 +41,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost/srikandi_api/remaja/show?pasien_id=" + this.user.role_id)
+      .get("http://srikandi.yogiyulianto.com/remaja/show?pasien_id=" + this.user.role_id)
       .then((response) => this.setResult(response.data.result))
       .catch((error) => console.log(error));
   },

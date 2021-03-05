@@ -113,7 +113,7 @@ export default {
             });
           } else {
             axios
-            .post("http://localhost/srikandi_api/user/add", formData,
+            .post("http://srikandi.yogiyulianto.com/user/add", formData,
             {
                 headers: {
                     'Content-Type': 'multipart/form-data'
