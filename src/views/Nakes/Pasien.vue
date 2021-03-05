@@ -40,7 +40,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://srikandi.yogiyulianto.com/konsultasi/show")
+      .get("https://srikandi.yogiyulianto.com/konsultasi/show")
       .then((response) => this.setResult(response.data.result))
       .catch((error) => console.log(error));
   },

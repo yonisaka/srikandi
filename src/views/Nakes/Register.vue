@@ -159,7 +159,7 @@ export default {
             });
           } else {
             axios
-            .post("http://srikandi.yogiyulianto.com/nakes/add", formData,
+            .post("https://srikandi.yogiyulianto.com/nakes/add", formData,
             {
                 headers: {
                     'Content-Type': 'multipart/form-data'
