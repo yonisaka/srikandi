@@ -39,7 +39,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost/srikandi_api/artikel/show?artikel_id=" + this.$route.params.id)
+      .get("http://srikandi.yogiyulianto.com/artikel/show?artikel_id=" + this.$route.params.id)
       .then((response) => this.setData(response.data.result))
       .catch((error) => console.log(error));
   },
