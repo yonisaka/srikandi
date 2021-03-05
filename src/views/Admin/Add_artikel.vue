@@ -104,7 +104,7 @@ export default {
       formData.append('mdb_name', this.$session.get('user').username)
       if (this.form.artikel_judul && this.form.artikel_isi && this.form.artikel_tanggal) {
           axios
-          .post("http://srikandi.yogiyulianto.com/artikel/add", formData,
+          .post("https://srikandi.yogiyulianto.com/artikel/add", formData,
           {
               headers: {
                   'Content-Type': 'multipart/form-data'
