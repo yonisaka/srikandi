@@ -29,10 +29,6 @@ Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '/*',
-    component: 404
-    },
-  {
     path: '/',
     name: 'Login',
     component: Login
