@@ -81,7 +81,7 @@ export default {
       formData.append('mdb_name', this.$session.get('user').username)
       if (this.form.video_judul) {
           axios
-          .post("http://localhost/srikandi_api/video/add", formData,
+          .post("https://srikandi.yogiyulianto.com/video/add", formData,
           {
               headers: {
                   'Content-Type': 'multipart/form-data'

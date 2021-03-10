@@ -188,12 +188,12 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost/srikandi_api/gejala/show")
+      .get("https://srikandi.yogiyulianto.com/gejala/show")
       .then((response) => this.setGejala(response.data.result))
       .catch((error) => console.log(error));
 
     axios
-      .get("http://localhost/srikandi_api/konsultasi/show?konsultasi_id=" + this.$route.params.id)
+      .get("https://srikandi.yogiyulianto.com/konsultasi/show?konsultasi_id=" + this.$route.params.id)
       .then((response) => this.setData(response.data.result))
       .catch((error) => console.log(error));
   },

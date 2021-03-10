@@ -5,10 +5,6 @@
       <v-row justify="center" align="center" >
         <v-col cols="11" sm="6" class="mx-auto">
           <b-form role="form" v-on:submit.prevent>
-            <b-form-radio-group v-slot="{ ariaDescribedby }" class="my-3">
-                <b-form-radio v-model="form.nakes_jenis" :aria-describedby="ariaDescribedby" name="some-radios" value="dokter">Dokter</b-form-radio>
-                <b-form-radio v-model="form.nakes_jenis" :aria-describedby="ariaDescribedby" name="some-radios" value="bidan">Bidan</b-form-radio>
-            </b-form-radio-group>
             <b-form-group
                 id="input-group-1"
                 label="Nama Lengkap"
@@ -18,32 +14,6 @@
                 v-model="form.user_nama"
                 type="text"
                 placeholder="Nama Lengkap"
-                required
-                ></b-form-input>
-            </b-form-group>
-
-            <b-form-group
-                id="input-group-1"
-                label="Alamat"
-                label-for="input-1"
-            >
-                <b-form-textarea
-                id="textarea"
-                v-model="form.nakes_alamat"
-                placeholder="Tuliskan Alamat..."
-                rows="3"
-                max-rows="3"
-                ></b-form-textarea>
-            </b-form-group>
-            <b-form-group
-                id="input-group-1"
-                label="Nomor Telp"
-                label-for="input-1"
-            >
-                <b-form-input
-                v-model="form.nakes_telp"
-                type="text"
-                placeholder="Nomor Telp"
                 required
                 ></b-form-input>
             </b-form-group>
@@ -83,18 +53,6 @@
                 required
                 ></b-form-input>
             </b-form-group>
-            <b-form-group
-                id="input-group-1"
-                label="Umur"
-                label-for="input-1"
-            >
-                <b-form-input
-                v-model="form.umur"
-                type="text"
-                placeholder="Umur"
-                required
-                ></b-form-input>
-            </b-form-group>
             <b-overlay
               :show="isLoading"
               rounded
@@ -121,7 +79,7 @@ import Appbar from "@/components/Appbar.vue";
 import axios from "axios";
 
 export default {
-  name: "Register_nakes",
+  name: "Register_admin",
   components: {
       Appbar,
   },
@@ -131,7 +89,7 @@ export default {
       form: {},
       page: {
         path: '/register',
-        title: 'Register Dinas Kesehatan',
+        title: 'Register Edukasi',
       }
     };
   },
@@ -142,12 +100,8 @@ export default {
       formData.append('user_nama', this.form.user_nama)
       formData.append('user_mail', this.form.user_mail)
       formData.append('user_password', this.form.user_password)
-      formData.append('nakes_alamat', this.form.nakes_alamat)
-      formData.append('nakes_jenis', this.form.nakes_jenis)
-      formData.append('nakes_telp', this.form.nakes_telp)
-      formData.append('umur', this.form.umur)
 
-      if (this.form.user_nama && this.form.user_mail && this.form.user_password && this.form.nakes_jenis && this.form.nakes_telp && this.form.umur) {
+      if (this.form.user_nama && this.form.user_mail && this.form.user_password ) {
 
           if (this.form.user_password != this.form.konfirm_user_password){
             this.isLoading = false
@@ -159,7 +113,7 @@ export default {
             });
           } else {
             axios
-            .post("https://srikandi.yogiyulianto.com/nakes/add", formData,
+            .post("https://srikandi.yogiyulianto.com/user/add", formData,
             {
                 headers: {
                     'Content-Type': 'multipart/form-data'

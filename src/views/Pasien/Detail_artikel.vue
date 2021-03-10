@@ -27,7 +27,7 @@ export default {
     return {
       data: {},
       page: {
-        path: '/admin/list_artikel',
+        path: '/pasien/list_artikel',
         title: this.$route.params.title,
       }
     };

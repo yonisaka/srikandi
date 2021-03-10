@@ -83,7 +83,7 @@ export default {
       this.isLoading = true
       if (this.auth.user_mail && this.auth.user_password) {
         axios
-          .post("http://localhost/srikandi_api/auth/login", this.auth)
+          .post("https://srikandi.yogiyulianto.com/auth/login", this.auth)
           .then((response) => {
             this.isLoading = false
             if (response.data != null){

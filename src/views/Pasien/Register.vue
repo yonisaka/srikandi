@@ -149,7 +149,7 @@ import Appbar from "@/components/Appbar.vue";
 import axios from "axios";
 
 export default {
-  name: "Register_nakes",
+  name: "Register_pasien",
   components: {
       Appbar,
   },
@@ -166,7 +166,7 @@ export default {
       isLoading: false,
       form: {},
       page: {
-        path: '/dokter/home',
+        path: '/register',
         title: 'Masukan Data Remaja',
       }
     };

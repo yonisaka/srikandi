@@ -11,10 +11,10 @@
                 label-for="input-1"
             >
                 <b-form-input
-                v-model="form.pasien_nama"
+                v-model="data.pasien_nama"
                 type="text"
                 placeholder="Nama Lengkap"
-                required
+                disabled
                 ></b-form-input>
             </b-form-group>
 
@@ -25,16 +25,20 @@
             >
                 <b-form-textarea
                 id="textarea"
-                v-model="form.pasien_alamat"
+                v-model="data.pasien_alamat"
                 placeholder="Tuliskan Alamat..."
                 rows="3"
-                max-rows="3"
+                max-rows="3" disabled
                 ></b-form-textarea>
             </b-form-group>
             <b-form-group
                 label="Jenis Kelamin"
             >
-            <b-form-select v-model="form.pasien_jenis" :options="options"></b-form-select>
+            <b-form-input
+                v-model="data.pasien_jenis_kelamin"
+                type="text"
+                disabled
+                ></b-form-input>
             </b-form-group>
             <b-form-group
                 id="input-group-1"
@@ -42,10 +46,10 @@
                 label-for="input-1"
             >
                 <b-form-input
-                v-model="form.pasien_umur"
+                v-model="data.pasien_umur"
                 type="text"
                 placeholder="Umur"
-                required
+                disabled
                 ></b-form-input>
             </b-form-group>
             <b-form-group
@@ -54,17 +58,21 @@
                 label-for="input-1"
             >
                 <b-form-input
-                v-model="form.pasien_hb"
+                v-model="data.pasien_homoglobin"
                 type="text"
                 placeholder="Kadar Homogoblin (hb)"
-                required
+                disabled
                 ></b-form-input>
             </b-form-group>
             <b-form-group
               label="Gejala"
-              v-slot="{ ariaDescribedby }"
             >
-              <b-form-checkbox
+              <b-form-input
+                v-model="data.pasien_gejala"
+                type="text"
+                disabled
+                ></b-form-input>
+              <!-- <b-form-checkbox
                 v-for="data in gejala"
                 v-model="pasien_gejala"
                 :key="data.gejala_id"
@@ -73,7 +81,7 @@
                 name="flavour-3a"
               >
                 {{ data.gejala_nama }}
-              </b-form-checkbox>
+              </b-form-checkbox> -->
             </b-form-group>
             <b-form-group
                 id="input-group-1"
@@ -81,10 +89,10 @@
                 label-for="input-1"
             >
                 <b-form-input
-                v-model="form.pasien_telp"
+                v-model="data.pasien_telp"
                 type="text"
                 placeholder="Nomor Telp"
-                required
+                disabled
                 ></b-form-input>
             </b-form-group>
             <b-form-group
@@ -93,22 +101,23 @@
                 label-for="input-1"
             >
                 <b-form-input
-                v-model="form.pasien_mail"
+                v-model="data.user_mail"
                 type="text"
                 placeholder="Email"
-                required
+                disabled
                 ></b-form-input>
             </b-form-group>
-            <b-form-group
+    
+            <!-- <b-form-group
                 id="input-group-1"
                 label="Password"
                 label-for="input-1"
             >
                 <b-form-input
-                v-model="form.pasien_password"
+                v-model="data.pasien_password"
                 type="password"
                 placeholder="Password"
-                required
+                disabled
                 ></b-form-input>
             </b-form-group>
             <b-form-group
@@ -117,13 +126,13 @@
                 label-for="input-1"
             >
                 <b-form-input
-                v-model="form.konfirm_pasien_password"
+                v-model="data.konfirm_pasien_password"
                 type="password"
                 placeholder="Konfirm Password"
-                required
+                disabled
                 ></b-form-input>
-            </b-form-group>
-            <b-overlay
+            </b-form-group> -->
+            <!-- <b-overlay
               :show="isLoading"
               rounded
               opacity="0.6"
@@ -136,7 +145,7 @@
                 Simpan
                 <b-icon-arrow-right-short></b-icon-arrow-right-short>
               </b-button>
-            </b-overlay>
+            </b-overlay> -->
           </b-form> 
         </v-col>
       </v-row>
@@ -149,25 +158,18 @@ import Appbar from "@/components/Appbar.vue";
 import axios from "axios";
 
 export default {
-  name: "Register_nakes",
+  name: "Detail_pasien_nakes",
   components: {
       Appbar,
   },
   data() {
     return {
+      data: {},
       pasien_gejala: [],
       gejala: [],
-      selected: null,
-      options: [
-          { value: null, text: 'Please select an option' },
-          { value: 'laki-laki', text: 'Laki-laki' },
-          { value: 'perempuan', text: 'Perempuan' },
-      ],
-      isLoading: false,
-      form: {},
       page: {
-        path: '/dokter/home',
-        title: 'Masukan Data Remaja',
+        path: '/pasien/list_konsultasi',
+        title: 'Detail Konsultasi',
       }
     };
   },
@@ -175,67 +177,19 @@ export default {
     setGejala(data) { 
       this.gejala = data;
     },
-    add_process() {
-      this.isLoading = true
-      let formData = new FormData()
-      formData.append('pasien_nama', this.form.pasien_nama)
-      formData.append('pasien_mail', this.form.pasien_mail)
-      formData.append('pasien_password', this.form.pasien_password)
-      formData.append('pasien_jenis', this.form.pasien_jenis)
-      formData.append('pasien_alamat', this.form.pasien_alamat)
-      formData.append('pasien_umur', this.form.pasien_umur)
-      formData.append('pasien_hb', this.form.pasien_hb)
-      formData.append('pasien_telp', this.form.pasien_telp)
-      formData.append('pasien_gejala', this.pasien_gejala)
-      console.log(this.form)
-
-      if (this.form.pasien_nama && this.form.pasien_mail && this.form.pasien_password && this.form.pasien_alamat && this.form.pasien_telp && this.form.pasien_umur) {
-
-          if (this.form.pasien_password != this.form.konfirm_pasien_password){
-            this.isLoading = false
-            this.$toast.error("Periksa Password anda", {
-            type: "error",
-            position: "top-right",
-            duration: 3000,
-            dismissible: true,
-            });
-          } else {
-            axios
-            .post("https://srikandi.yogiyulianto.com/remaja/add", formData,
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
-            .then(() => {
-                // this.setUser(response.data)
-                this.$toast.success("Berhasil menambahkan Akun", {
-                type: "success",
-                position: "top-right",
-                duration: 3000,
-                dismissible: true,
-                });
-                this.isLoading = false
-                this.$router.push({ path: "/"})
-            })
-            .catch((err) => console.log(err));
-          }
-          
-      } else {
-          this.isLoading = false
-          this.$toast.error("Form harus diisi", {
-          type: "error",
-          position: "top-right",
-          duration: 3000,
-          dismissible: true,
-          });
-      }
-    }
+    setData(data) {
+      this.data = data;
+    },
   },
   mounted() {
     axios
       .get("https://srikandi.yogiyulianto.com/gejala/show")
       .then((response) => this.setGejala(response.data.result))
+      .catch((error) => console.log(error));
+
+    axios
+      .get("https://srikandi.yogiyulianto.com/konsultasi/show?konsultasi_id=" + this.$route.params.id)
+      .then((response) => this.setData(response.data.result))
       .catch((error) => console.log(error));
   },
 };

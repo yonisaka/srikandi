@@ -7,49 +7,6 @@
           <b-form role="form" v-on:submit.prevent>
             <b-form-group
                 id="input-group-1"
-                label="Nama Lengkap"
-                label-for="input-1"
-            >
-                <b-form-input
-                v-model="form.pasien_nama"
-                type="text"
-                placeholder="Nama Lengkap"
-                required
-                ></b-form-input>
-            </b-form-group>
-
-            <b-form-group
-                id="input-group-1"
-                label="Alamat"
-                label-for="input-1"
-            >
-                <b-form-textarea
-                id="textarea"
-                v-model="form.pasien_alamat"
-                placeholder="Tuliskan Alamat..."
-                rows="3"
-                max-rows="3"
-                ></b-form-textarea>
-            </b-form-group>
-            <b-form-group
-                label="Jenis Kelamin"
-            >
-            <b-form-select v-model="form.pasien_jenis" :options="options"></b-form-select>
-            </b-form-group>
-            <b-form-group
-                id="input-group-1"
-                label="Umur"
-                label-for="input-1"
-            >
-                <b-form-input
-                v-model="form.pasien_umur"
-                type="text"
-                placeholder="Umur"
-                required
-                ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                id="input-group-1"
                 label="Kadar Homogoblin (hb)"
                 label-for="input-1"
             >
@@ -74,54 +31,6 @@
               >
                 {{ data.gejala_nama }}
               </b-form-checkbox>
-            </b-form-group>
-            <b-form-group
-                id="input-group-1"
-                label="Nomor Telp"
-                label-for="input-1"
-            >
-                <b-form-input
-                v-model="form.pasien_telp"
-                type="text"
-                placeholder="Nomor Telp"
-                required
-                ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                id="input-group-1"
-                label="Email"
-                label-for="input-1"
-            >
-                <b-form-input
-                v-model="form.pasien_mail"
-                type="text"
-                placeholder="Email"
-                required
-                ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                id="input-group-1"
-                label="Password"
-                label-for="input-1"
-            >
-                <b-form-input
-                v-model="form.pasien_password"
-                type="password"
-                placeholder="Password"
-                required
-                ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                id="input-group-1"
-                label="Konfirm Password"
-                label-for="input-1"
-            >
-                <b-form-input
-                v-model="form.konfirm_pasien_password"
-                type="password"
-                placeholder="Konfirm Password"
-                required
-                ></b-form-input>
             </b-form-group>
             <b-overlay
               :show="isLoading"
@@ -149,7 +58,7 @@ import Appbar from "@/components/Appbar.vue";
 import axios from "axios";
 
 export default {
-  name: "Register_nakes",
+  name: "Add_konsultasi",
   components: {
       Appbar,
   },
@@ -166,9 +75,10 @@ export default {
       isLoading: false,
       form: {},
       page: {
-        path: '/dokter/home',
-        title: 'Masukan Data Remaja',
-      }
+        path: '/pasien/home',
+        title: 'Masukan Data Konsultasi',
+      },
+      user: this.$session.get('user'),
     };
   },
   methods: {
@@ -178,18 +88,12 @@ export default {
     add_process() {
       this.isLoading = true
       let formData = new FormData()
-      formData.append('pasien_nama', this.form.pasien_nama)
-      formData.append('pasien_mail', this.form.pasien_mail)
-      formData.append('pasien_password', this.form.pasien_password)
-      formData.append('pasien_jenis', this.form.pasien_jenis)
-      formData.append('pasien_alamat', this.form.pasien_alamat)
-      formData.append('pasien_umur', this.form.pasien_umur)
+      formData.append('pasien_id', this.user.role_id)     
       formData.append('pasien_hb', this.form.pasien_hb)
-      formData.append('pasien_telp', this.form.pasien_telp)
       formData.append('pasien_gejala', this.pasien_gejala)
       console.log(this.form)
 
-      if (this.form.pasien_nama && this.form.pasien_mail && this.form.pasien_password && this.form.pasien_alamat && this.form.pasien_telp && this.form.pasien_umur) {
+      if (this.form.pasien_hb && this.pasien_gejala) {
 
           if (this.form.pasien_password != this.form.konfirm_pasien_password){
             this.isLoading = false
@@ -201,7 +105,7 @@ export default {
             });
           } else {
             axios
-            .post("https://srikandi.yogiyulianto.com/remaja/add", formData,
+            .post("https://srikandi.yogiyulianto.com/konsultasi/add", formData,
             {
                 headers: {
                     'Content-Type': 'multipart/form-data'

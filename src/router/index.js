@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import Register_admin from '../views/Admin/Register.vue'
 import Register_nakes from '../views/Nakes/Register.vue'
+import Register_pasien from '../views/Pasien/Register.vue'
 
 import Home_admin from '../views/Admin/Home.vue'
 import Artikel_admin from '../views/Admin/Artikel.vue'
@@ -15,6 +17,13 @@ import Home_nakes from '../views/Nakes/Home.vue'
 import Add_pasien from '../views/Nakes/Add_pasien.vue'
 import Pasien_nakes from '../views/Nakes/Pasien.vue'
 import Detail_pasien_nakes from '../views/Nakes/Detail_pasien.vue'
+
+import Home_pasien from '../views/Pasien/Home.vue'
+import Artikel_pasien from '../views/Pasien/Artikel.vue'
+import Detail_artikel_pasien from '../views/Pasien/Detail_artikel.vue'
+import Konsultasi_pasien from '../views/Pasien/Konsultasi.vue'
+import Detail_konsultasi from '../views/Pasien/Detail_konsultasi.vue'
+import Add_konsultasi from '../views/Pasien/Add_konsultasi.vue'
 
 Vue.use(VueRouter)
 
@@ -30,9 +39,24 @@ Vue.use(VueRouter)
     component: Register
   },
   {
+    path: '/admin/register',
+    name: 'Register_admin',
+    component: Register_admin
+  },
+  {
     path: '/nakes/register',
     name: 'Register_nakes',
     component: Register_nakes
+  },
+  {
+    path: '/nakes/register',
+    name: 'Register_nakes',
+    component: Register_nakes
+  },
+  {
+    path: '/pasien/register',
+    name: 'Register_pasien',
+    component: Register_pasien
   },
   {
     path: '/admin/home',
@@ -83,6 +107,36 @@ Vue.use(VueRouter)
     path: '/dokter/detail_pasien/:id',
     name: 'Detail_pasien_nakes',
     component: Detail_pasien_nakes
+  },
+  {
+    path: '/pasien/home',
+    name: 'Home_pasien',
+    component: Home_pasien
+  },
+  {
+    path: '/pasien/list_artikel',
+    name: 'Artikel_pasien',
+    component: Artikel_pasien
+  },
+  {
+    path: '/pasien/detail_artikel/:id/:title',
+    name: 'Detail_artikel_pasien',
+    component: Detail_artikel_pasien
+  },
+  {
+    path: '/pasien/list_konsultasi',
+    name: 'Konsultasi_pasien',
+    component: Konsultasi_pasien
+  },
+  {
+    path: '/pasien/detail_pasien/:id',
+    name: 'Detail_konsultasi',
+    component: Detail_konsultasi
+  },
+  {
+    path: '/pasien/add_konsultasi',
+    name: 'Add_konsultasi',
+    component: Add_konsultasi
   },
 ]
 
