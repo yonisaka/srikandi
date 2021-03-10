@@ -9,6 +9,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import './assets/css/main.css'
 import './registerServiceWorker'
+import VueConfirmDialog from 'vue-confirm-dialog'
+ 
+
 // import VueCoreVideoPlayer from 'vue-core-video-player'
 // import vuetify from './plugins/vuetify';
 // import 'roboto-fontface/css/roboto/roboto-fontface.css'
@@ -20,6 +23,8 @@ Vue.use(VueSession);
 Vue.use(VueToast);
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
+Vue.use(VueConfirmDialog)
+Vue.component('vue-confirm-dialog', VueConfirmDialog.default)
 // Vue.use(VueCoreVideoPlayer)
 
 Vue.config.productionTip = false

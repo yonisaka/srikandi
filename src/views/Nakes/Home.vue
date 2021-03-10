@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <!-- <Appbar /> -->
+    <div @click="logout" class="btn-exit mt-4 ml-3">
+      <h5><b-icon-box-arrow-left></b-icon-box-arrow-left></h5>
+    </div>
     <v-container fill-height class="text-center mt-5">
       <v-row justify="center" align="center" class="mt-5">
         <v-col cols="10" sm="4" class="mx-auto mt-5">
@@ -73,6 +76,37 @@ export default {
   beforeCreate() {
     if(this.$session.get('user') == null){
       this.$router.push({ path: "/"})
+    }
+  },
+  methods: {
+    logout() {
+      this.$confirm(
+        {
+          message: `Yakin Mau Logout?`,
+          button: {
+            no: 'No',
+            yes: 'Yes'
+          },
+          /**
+          * Callback Function
+          * @param {Boolean} confirm 
+          */
+          callback: confirm => {
+            if (confirm) {
+              // ... do something
+              this.$session.destroy();
+              this.$toast.success("Berhasil Logout", {
+                type: "success",
+                position: "top-right",
+                duration: 3000,
+                dismissible: true,
+              });
+              window.location.href = '/';
+              // this.$router.push({ path: "/", redirect: '/'})
+            }
+          }
+        }
+      )
     }
   }
 };
