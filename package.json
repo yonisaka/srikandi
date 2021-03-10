@@ -16,6 +16,7 @@
     "register-service-worker": "^1.7.1",
     "roboto-fontface": "*",
     "vue": "^2.6.11",
+    "vue-confirm-dialog": "^1.0.2",
     "vue-cookie": "^1.1.4",
     "vue-core-video-player": "^0.2.0",
     "vue-moment": "^4.1.0",

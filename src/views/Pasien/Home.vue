@@ -1,8 +1,11 @@
 <template>
   <div class="home">
     <!-- <Appbar /> -->
+    <div @click="logout" class="btn-exit mt-4 ml-3">
+      <h5><b-icon-box-arrow-left></b-icon-box-arrow-left></h5>
+    </div>
     <v-container fill-height class="text-center mt-5">
-      <v-row justify="center" align="center" class="mt-5">
+      <v-row justify="center" align="center" class="mt-3">
         <v-col cols="10" sm="4" class="mx-auto mt-5">
           <p class="text-title h5 font-weight-bold">Selamat Datang, {{ user.username }}</p>
           <p class="text-subtitle h6 text-secondary mt-3">
@@ -65,6 +68,37 @@ export default {
       this.$router.push({ path: "/"})
     }
   },
+  methods: {
+    logout() {
+      this.$confirm(
+        {
+          message: `Yakin Mau Logout?`,
+          button: {
+            no: 'No',
+            yes: 'Yes'
+          },
+          /**
+          * Callback Function
+          * @param {Boolean} confirm 
+          */
+          callback: confirm => {
+            if (confirm) {
+              // ... do something
+              this.$session.destroy();
+              this.$toast.success("Berhasil Logout", {
+                type: "success",
+                position: "top-right",
+                duration: 3000,
+                dismissible: true,
+              });
+              window.location.href = '/';
+              // this.$router.push({ path: "/", redirect: '/'})
+            }
+          }
+        }
+      )
+    }
+  }
   // mounted() {
   //   axios
   //     .get("http://localhost/srikandi_api/remaja/pasien_user?user_id=" + this.user.user_id)

@@ -57,3 +57,8 @@
 .btn-main{
     height:140px;
 }
+
+.btn-exit{
+    float: left;
+    display: block;
+}
