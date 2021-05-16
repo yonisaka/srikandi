@@ -98,7 +98,7 @@ export default {
               });
               this.$router.push({ path: "/"+response.data.data.role+"/home"})
             } else {
-              this.$toast.error("Email dan Password tidak ditemukan", {
+              this.$toast.error("Email & Password Wrong", {
                 type: "error",
                 position: "top-right",
                 duration: 3000,
@@ -109,7 +109,7 @@ export default {
           })
           .catch(() => {
             this.isLoading = false
-            this.$toast.error("Email dan Password tidak ditemukan", {
+            this.$toast.error("Email & Password Wrong", {
                 type: "error",
                 position: "top-right",
                 duration: 3000,
@@ -118,7 +118,7 @@ export default {
           });
       } else {
         this.isLoading = false
-        this.$toast.error("Email dan Password Harus diisi", {
+        this.$toast.error("Email & Password must be filled", {
           type: "error",
           position: "top-right",
           duration: 3000,
