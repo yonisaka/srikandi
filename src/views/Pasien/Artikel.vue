@@ -29,7 +29,7 @@ export default {
       result: [],
       page: {
         path: '/pasien/home',
-        title: 'Tabel Article',
+        title: 'Table Article',
       }
     };
   },
