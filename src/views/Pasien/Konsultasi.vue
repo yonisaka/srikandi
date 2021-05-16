@@ -29,7 +29,7 @@ export default {
       result: [],
       page: {
         path: '/pasien/home',
-        title: 'Data Konsultasi',
+        title: 'Consultation data',
       },
       user: this.$session.get('user'),
     };
