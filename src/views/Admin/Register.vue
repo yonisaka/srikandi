@@ -7,13 +7,13 @@
           <b-form role="form" v-on:submit.prevent>
             <b-form-group
                 id="input-group-1"
-                label="Nama Lengkap"
+                label="Fullname"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.user_nama"
                 type="text"
-                placeholder="Nama Lengkap"
+                placeholder="Fullname"
                 required
                 ></b-form-input>
             </b-form-group>
@@ -43,13 +43,13 @@
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Konfirm Password"
+                label="Confirm Password"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.konfirm_user_password"
                 type="password"
-                placeholder="Konfirm Password"
+                placeholder="Confirm Password"
                 required
                 ></b-form-input>
             </b-form-group>
@@ -89,7 +89,7 @@ export default {
       form: {},
       page: {
         path: '/register',
-        title: 'Register Edukasi',
+        title: 'Register Education',
       }
     };
   },
@@ -105,7 +105,7 @@ export default {
 
           if (this.form.user_password != this.form.konfirm_user_password){
             this.isLoading = false
-            this.$toast.error("Periksa Password anda", {
+            this.$toast.error("Check your password", {
             type: "error",
             position: "top-right",
             duration: 3000,
@@ -121,7 +121,7 @@ export default {
             })
             .then(() => {
                 // this.setUser(response.data)
-                this.$toast.success("Berhasil menambahkan Akun", {
+                this.$toast.success("Account created successfully", {
                 type: "success",
                 position: "top-right",
                 duration: 3000,
@@ -135,7 +135,7 @@ export default {
           
       } else {
           this.isLoading = false
-          this.$toast.error("Form harus diisi", {
+          this.$toast.error("Form must be filled", {
           type: "error",
           position: "top-right",
           duration: 3000,

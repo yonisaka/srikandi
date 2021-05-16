@@ -13,7 +13,7 @@
                         <div class="row pt-5">
                             <div class="col-lg-10 col-xl-5 mx-auto pt-5">
                                 <h3 class="display-4 text-light"><img src="../assets/srikandi.png" width="20%" /></h3>
-                                <h5 class="mb-4 text-light">Selamat Datang di <br> Srikandi Health</h5>
+                                <h5 class="mb-4 text-light">Welcome to <br> Srikandi Health</h5>
                                 <form class="mt-2" v-on:submit.prevent>
                                     <div class="form-group mb-3">
                                         <input type="text" placeholder="Email address" v-model="auth.user_mail" class="form-control rounded-pill border-0 shadow-sm px-4">

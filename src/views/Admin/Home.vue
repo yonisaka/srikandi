@@ -8,9 +8,10 @@
       
       <v-row justify="center" align="center" class="mt-2">
         <v-col cols="10" sm="4" class="mx-auto mt-5">
-          <p class="text-title h5 font-weight-bold">Selamat Datang {{ user.username }}, di Edukasi</p>
+          <p class="text-title h5 font-weight-bold">Welcome Admin to</p>
+          <!-- <p class="text-title h5 font-weight-bold">Welcome {{ user.username }} to</p> -->
           <p class="text-subtitle h6 text-secondary mt-3">
-            Sistem Informasi <br> Kesehatan Menanggulangi <br> Anemia pada Remaja Indonesia
+            Health information system <br> to handle anemia deasese <br> Indonesian adolescents
           </p>
         </v-col>
       </v-row>
@@ -21,7 +22,7 @@
               <div class="h3 py-3">
               <b-icon-pencil-square></b-icon-pencil-square>
               </div>
-              Tambah Artikel
+              Submit Article
             </button>
           </router-link>
         </v-col>
@@ -31,7 +32,7 @@
               <div class="h3 py-3">
               <b-icon-newspaper></b-icon-newspaper>
               </div>
-              Lihat Artikel
+              See Article
             </button>
           </router-link>
         </v-col>
@@ -43,7 +44,7 @@
               <div class="h3 py-3">
               <b-icon-cloud-arrow-up></b-icon-cloud-arrow-up>
               </div>
-              Tambah Video
+              Submit Video
             </button>
           </router-link>
         </v-col>
@@ -53,7 +54,7 @@
               <div class="h3 py-3">
               <b-icon-youtube></b-icon-youtube>
               </div>
-              Lihat Video
+              See Video
             </button>
           </router-link>
         </v-col>
@@ -83,7 +84,7 @@ export default {
     logout() {
       this.$confirm(
         {
-          message: `Yakin Mau Logout?`,
+          message: `Are you sure?`,
           button: {
             no: 'No',
             yes: 'Yes'
@@ -96,7 +97,7 @@ export default {
             if (confirm) {
               // ... do something
               this.$session.destroy();
-              this.$toast.success("Berhasil Logout", {
+              this.$toast.success("Success Logout", {
                 type: "success",
                 position: "top-right",
                 duration: 3000,

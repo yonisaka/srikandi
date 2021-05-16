@@ -6,47 +6,47 @@
         <v-col cols="12" sm="6" class="mx-auto">
           <b-form role="form" v-on:submit.prevent>
             <b-form-group
-                label="Banner Artikel"
+                label="Banner Article"
                 label-for="input-2"
             >
                 <b-form-file
                   id="input-2"
                   type="file"
                   v-model="form.file"
-                  placeholder="Pilih file banner"
+                  placeholder="Select file banner"
                   drop-placeholder="Drop file here..."
                   ref="file"
                 ></b-form-file>
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Judul Artikel"
+                label="Article title"
                 label-for="input-1"
             >
                 <b-form-input
                 id="input-1"
                 v-model="form.artikel_judul"
                 type="text"
-                placeholder="Judul Artikel"
+                placeholder="Article title"
                 required
                 ></b-form-input>
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Tanggal Artikel"
+                label="Article date"
                 label-for="input-1"
             >
                 <b-form-datepicker id="example-datepicker" v-model="form.artikel_tanggal" class="mb-2"></b-form-datepicker>
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Isi Artikel"
+                label="Article contents"
                 label-for="input-1"
             >
                 <b-form-textarea
                 id="textarea"
                 v-model="form.artikel_isi"
-                placeholder="Tuliskan isi artikel..."
+                placeholder="Write the contects..."
                 rows="8"
                 max-rows="8"
                 ></b-form-textarea>
@@ -112,7 +112,7 @@ export default {
           })
           .then(() => {
               // this.setUser(response.data)
-              this.$toast.success("Berhasil menambahkan Video", {
+              this.$toast.success("Success", {
               type: "success",
               position: "top-right",
               duration: 3000,

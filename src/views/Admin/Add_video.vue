@@ -7,26 +7,26 @@
           <b-form role="form" v-on:submit.prevent>
             <b-form-group
                 id="input-group-1"
-                label="Judul Video:"
+                label="Video title:"
                 label-for="input-1"
             >
                 <b-form-input
                 id="input-1"
                 v-model="form.video_judul"
                 type="text"
-                placeholder="Judul Video"
+                placeholder="Video title"
                 required
                 ></b-form-input>
             </b-form-group>
             <b-form-group
-                label="File Video:"
+                label="Video file:"
                 label-for="input-2"
             >
                 <b-form-file
                   id="input-2"
                   type="file"
                   v-model="form.file"
-                  placeholder="Pilih file video"
+                  placeholder="Select a video file"
                   drop-placeholder="Drop file here..."
                   ref="file"
                 ></b-form-file>
@@ -41,7 +41,7 @@
               <b-button block type="submit" 
               @click="add_process" 
               class="btn btn-round btn-success my-4">
-                Simpan
+                Save
                 <b-icon-arrow-right-short></b-icon-arrow-right-short>
               </b-button>
             </b-overlay>
@@ -67,7 +67,7 @@ export default {
       form: {},
       page: {
         path: '/admin/home',
-        title: 'Tambah Video',
+        title: 'Submit Video',
       }
     };
   },
