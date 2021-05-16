@@ -63,7 +63,7 @@
               <b-button block type="submit" 
               @click="add_process" 
               class="btn btn-round btn-success my-4">
-                Simpan
+                Save
                 <b-icon-arrow-right-short></b-icon-arrow-right-short>
               </b-button>
             </b-overlay>
