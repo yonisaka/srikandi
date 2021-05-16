@@ -7,7 +7,7 @@
           <b-form role="form" v-on:submit.prevent>
             <b-form-group
                 id="input-group-1"
-                label="Nama Lengkap"
+                label="Fullname"
                 label-for="input-1"
             >
                 <b-form-input
