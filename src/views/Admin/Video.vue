@@ -29,7 +29,7 @@ export default {
       result: [],
       page: {
         path: '/admin/home',
-        title: 'Tabel Video',
+        title: 'Table Video',
       }
     };
   },
