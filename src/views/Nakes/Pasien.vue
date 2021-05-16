@@ -29,7 +29,7 @@ export default {
       result: [],
       page: {
         path: '/dokter/home',
-        title: 'Data Pasien',
+        title: 'Data Patient',
       }
     };
   },

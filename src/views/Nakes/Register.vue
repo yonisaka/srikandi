@@ -11,39 +11,39 @@
             </b-form-radio-group>
             <b-form-group
                 id="input-group-1"
-                label="Nama Lengkap"
+                label="Fullname"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.user_nama"
                 type="text"
-                placeholder="Nama Lengkap"
+                placeholder="Fullname"
                 required
                 ></b-form-input>
             </b-form-group>
 
             <b-form-group
                 id="input-group-1"
-                label="Alamat"
+                label="Address"
                 label-for="input-1"
             >
                 <b-form-textarea
                 id="textarea"
                 v-model="form.nakes_alamat"
-                placeholder="Tuliskan Alamat..."
+                placeholder="Address..."
                 rows="3"
                 max-rows="3"
                 ></b-form-textarea>
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Nomor Telp"
+                label="Phone number"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.nakes_telp"
                 type="text"
-                placeholder="Nomor Telp"
+                placeholder="Phone number"
                 required
                 ></b-form-input>
             </b-form-group>
@@ -73,25 +73,25 @@
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Konfirm Password"
+                label="Confirm Password"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.konfirm_user_password"
                 type="password"
-                placeholder="Konfirm Password"
+                placeholder="Confirm Password"
                 required
                 ></b-form-input>
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Umur"
+                label="Age"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.umur"
                 type="text"
-                placeholder="Umur"
+                placeholder="Age"
                 required
                 ></b-form-input>
             </b-form-group>
@@ -105,7 +105,7 @@
               <b-button block type="submit" 
               @click="add_process" 
               class="btn btn-round btn-success my-4">
-                Simpan
+                Save
                 <b-icon-arrow-right-short></b-icon-arrow-right-short>
               </b-button>
             </b-overlay>
@@ -131,7 +131,7 @@ export default {
       form: {},
       page: {
         path: '/register',
-        title: 'Register Dinas Kesehatan',
+        title: 'Register public health office',
       }
     };
   },
@@ -151,7 +151,7 @@ export default {
 
           if (this.form.user_password != this.form.konfirm_user_password){
             this.isLoading = false
-            this.$toast.error("Periksa Password anda", {
+            this.$toast.error("Check your password", {
             type: "error",
             position: "top-right",
             duration: 3000,
@@ -167,7 +167,7 @@ export default {
             })
             .then(() => {
                 // this.setUser(response.data)
-                this.$toast.success("Berhasil menambahkan Akun", {
+                this.$toast.success("Success", {
                 type: "success",
                 position: "top-right",
                 duration: 3000,
@@ -181,7 +181,7 @@ export default {
           
       } else {
           this.isLoading = false
-          this.$toast.error("Form harus diisi", {
+          this.$toast.error("Form must be filled", {
           type: "error",
           position: "top-right",
           duration: 3000,

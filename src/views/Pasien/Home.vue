@@ -7,9 +7,9 @@
     <v-container fill-height class="text-center mt-5">
       <v-row justify="center" align="center" class="mt-3">
         <v-col cols="10" sm="4" class="mx-auto mt-5">
-          <p class="text-title h5 font-weight-bold">Selamat Datang, {{ user.username }}</p>
+          <p class="text-title h5 font-weight-bold">Welcome, {{ user.username }}</p>
           <p class="text-subtitle h6 text-secondary mt-3">
-            Sistem Informasi <br> Kesehatan Menanggulangi <br> Anemia pada Remaja Indonesia
+            Health information system <br> to handle anemia deasese <br> Indonesian adolescents
           </p>
         </v-col>
       </v-row>
@@ -20,7 +20,7 @@
               <div class="h3 py-3">
               <b-icon-newspaper></b-icon-newspaper>
               </div>
-              Edukasi Anemia
+              Anemia Education
             </button>
           </router-link>
         </v-col>
@@ -30,7 +30,7 @@
               <div class="h3 py-3">
               <b-icon-person-badge></b-icon-person-badge>
               </div>
-              Data Konsultasi
+              Consultation data
             </button>
           </router-link>
         </v-col>
@@ -42,7 +42,7 @@
               <div class="h3 py-3">
               <b-icon-person-check></b-icon-person-check>
               </div>
-              Konsultasi
+              Consultation
             </button>
           </router-link>
         </v-col>
@@ -72,7 +72,7 @@ export default {
     logout() {
       this.$confirm(
         {
-          message: `Yakin Mau Logout?`,
+          message: `Are you sure want to logout?`,
           button: {
             no: 'No',
             yes: 'Yes'
@@ -85,7 +85,7 @@ export default {
             if (confirm) {
               // ... do something
               this.$session.destroy();
-              this.$toast.success("Berhasil Logout", {
+              this.$toast.success("Success Logout", {
                 type: "success",
                 position: "top-right",
                 duration: 3000,

@@ -13,55 +13,55 @@
                 <b-form-input
                 v-model="form.pasien_nama"
                 type="text"
-                placeholder="Nama Lengkap"
+                placeholder="Fullname"
                 required
                 ></b-form-input>
             </b-form-group>
 
             <b-form-group
                 id="input-group-1"
-                label="Alamat"
+                label="Address"
                 label-for="input-1"
             >
                 <b-form-textarea
                 id="textarea"
                 v-model="form.pasien_alamat"
-                placeholder="Tuliskan Alamat..."
+                placeholder="Address..."
                 rows="3"
                 max-rows="3"
                 ></b-form-textarea>
             </b-form-group>
             <b-form-group
-                label="Jenis Kelamin"
+                label="Gender"
             >
             <b-form-select v-model="form.pasien_jenis" :options="options"></b-form-select>
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Umur"
+                label="Age"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.pasien_umur"
                 type="text"
-                placeholder="Umur"
+                placeholder="Age"
                 required
                 ></b-form-input>
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Kadar Homogoblin (hb)"
+                label="Homogoblin levels (hb)"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.pasien_hb"
                 type="text"
-                placeholder="Kadar Homogoblin (hb)"
+                placeholder="Homogoblin levels (hb)"
                 required
                 ></b-form-input>
             </b-form-group>
             <b-form-group
-              label="Gejala"
+              label="symptoms"
               v-slot="{ ariaDescribedby }"
             >
               <b-form-checkbox
@@ -77,13 +77,13 @@
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Nomor Telp"
+                label="Phone number"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.pasien_telp"
                 type="text"
-                placeholder="Nomor Telp"
+                placeholder="Phone number"
                 required
                 ></b-form-input>
             </b-form-group>
@@ -113,13 +113,13 @@
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Konfirm Password"
+                label="Confirm password"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.konfirm_pasien_password"
                 type="password"
-                placeholder="Konfirm Password"
+                placeholder="Confirm password"
                 required
                 ></b-form-input>
             </b-form-group>
@@ -133,7 +133,7 @@
               <b-button block type="submit" 
               @click="add_process" 
               class="btn btn-round btn-success my-4">
-                Simpan
+                Save
                 <b-icon-arrow-right-short></b-icon-arrow-right-short>
               </b-button>
             </b-overlay>
@@ -160,14 +160,14 @@ export default {
       selected: null,
       options: [
           { value: null, text: 'Please select an option' },
-          { value: 'laki-laki', text: 'Laki-laki' },
-          { value: 'perempuan', text: 'Perempuan' },
+          { value: 'man', text: 'man' },
+          { value: 'woman', text: 'woman' },
       ],
       isLoading: false,
       form: {},
       page: {
         path: '/dokter/home',
-        title: 'Masukan Data Remaja',
+        title: 'Add data',
       }
     };
   },
@@ -193,7 +193,7 @@ export default {
 
           if (this.form.pasien_password != this.form.konfirm_pasien_password){
             this.isLoading = false
-            this.$toast.error("Periksa Password anda", {
+            this.$toast.error("Check your password", {
             type: "error",
             position: "top-right",
             duration: 3000,
@@ -209,7 +209,7 @@ export default {
             })
             .then(() => {
                 // this.setUser(response.data)
-                this.$toast.success("Berhasil menambahkan Akun", {
+                this.$toast.success("Success", {
                 type: "success",
                 position: "top-right",
                 duration: 3000,
@@ -223,7 +223,7 @@ export default {
           
       } else {
           this.isLoading = false
-          this.$toast.error("Form harus diisi", {
+          this.$toast.error("Form must be filled", {
           type: "error",
           position: "top-right",
           duration: 3000,

@@ -7,18 +7,18 @@
           <b-form role="form" v-on:submit.prevent>
             <b-form-group
                 id="input-group-1"
-                label="Kadar Homogoblin (hb)"
+                label="Homogoblin levels(hb)"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="form.pasien_hb"
                 type="text"
-                placeholder="Kadar Homogoblin (hb)"
+                placeholder="Homogoblin levels (hb)"
                 required
                 ></b-form-input>
             </b-form-group>
             <b-form-group
-              label="Gejala"
+              label="Symptoms"
               v-slot="{ ariaDescribedby }"
             >
               <b-form-checkbox
@@ -42,7 +42,7 @@
               <b-button block type="submit" 
               @click="add_process" 
               class="btn btn-round btn-success my-4">
-                Simpan
+                Save
                 <b-icon-arrow-right-short></b-icon-arrow-right-short>
               </b-button>
             </b-overlay>
@@ -69,14 +69,14 @@ export default {
       selected: null,
       options: [
           { value: null, text: 'Please select an option' },
-          { value: 'laki-laki', text: 'Laki-laki' },
-          { value: 'perempuan', text: 'Perempuan' },
+          { value: 'man', text: 'Man' },
+          { value: 'woman', text: 'Woman' },
       ],
       isLoading: false,
       form: {},
       page: {
         path: '/pasien/home',
-        title: 'Masukan Data Konsultasi',
+        title: 'Add data',
       },
       user: this.$session.get('user'),
     };
@@ -113,7 +113,7 @@ export default {
             })
             .then(() => {
                 // this.setUser(response.data)
-                this.$toast.success("Berhasil menambahkan Akun", {
+                this.$toast.success("Success", {
                 type: "success",
                 position: "top-right",
                 duration: 3000,
@@ -127,7 +127,7 @@ export default {
           
       } else {
           this.isLoading = false
-          this.$toast.error("Form harus diisi", {
+          this.$toast.error("Form must be filled", {
           type: "error",
           position: "top-right",
           duration: 3000,

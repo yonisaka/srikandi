@@ -7,32 +7,32 @@
           <b-form role="form" v-on:submit.prevent>
             <b-form-group
                 id="input-group-1"
-                label="Nama Lengkap"
+                label="Fullname"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="data.pasien_nama"
                 type="text"
-                placeholder="Nama Lengkap"
+                placeholder="Fullname"
                 disabled
                 ></b-form-input>
             </b-form-group>
 
             <b-form-group
                 id="input-group-1"
-                label="Alamat"
+                label="Address"
                 label-for="input-1"
             >
                 <b-form-textarea
                 id="textarea"
                 v-model="data.pasien_alamat"
-                placeholder="Tuliskan Alamat..."
+                placeholder="Address..."
                 rows="3"
                 max-rows="3" disabled
                 ></b-form-textarea>
             </b-form-group>
             <b-form-group
-                label="Jenis Kelamin"
+                label="Gender"
             >
             <b-form-input
                 v-model="data.pasien_jenis_kelamin"
@@ -42,30 +42,30 @@
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Umur"
+                label="Age"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="data.pasien_umur"
                 type="text"
-                placeholder="Umur"
+                placeholder="Age"
                 disabled
                 ></b-form-input>
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Kadar Homogoblin (hb)"
+                label="Hemoglobin levels (hb)"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="data.pasien_homoglobin"
                 type="text"
-                placeholder="Kadar Homogoblin (hb)"
+                placeholder="Hemoglobin levels (hb)"
                 disabled
                 ></b-form-input>
             </b-form-group>
             <b-form-group
-              label="Gejala"
+              label="Symptoms"
             >
               <b-form-input
                 v-model="data.pasien_gejala"
@@ -85,13 +85,13 @@
             </b-form-group>
             <b-form-group
                 id="input-group-1"
-                label="Nomor Telp"
+                label="Phone number"
                 label-for="input-1"
             >
                 <b-form-input
                 v-model="data.pasien_telp"
                 type="text"
-                placeholder="Nomor Telp"
+                placeholder="Phone number"
                 disabled
                 ></b-form-input>
             </b-form-group>
